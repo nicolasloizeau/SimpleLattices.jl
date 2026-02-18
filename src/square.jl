@@ -14,7 +14,7 @@ function positions(lattice::SquareLattice)
     return vec([(x, y) for x in 0:Nx-1, y in 0:Ny-1])
 end
 
-function nodes(lattice::SquareLattice)
+function sites(lattice::SquareLattice)
     return 1:lattice.Nx * lattice.Ny
 end
 

@@ -14,6 +14,8 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "SquareLattice" => "square.md",
+        "SquareLattice3D" => "cubic.md",
     ],
 )
 

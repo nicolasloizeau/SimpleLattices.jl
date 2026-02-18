@@ -1,5 +1,5 @@
 
-struct SquareLattice3D <: AbstractLattice3D
+struct CubicLattice <: AbstractLattice3D
     Nx::Int
     Ny::Int
     Nz::Int
@@ -8,20 +8,20 @@ struct SquareLattice3D <: AbstractLattice3D
     zperiodic::Bool
 end
 
-Base.length(lattice::SquareLattice3D) = lattice.Nx * lattice.Ny * lattice.Nz
-Base.size(lattice::SquareLattice3D) = (lattice.Nx, lattice.Ny, lattice.Nz)
+Base.length(lattice::CubicLattice) = lattice.Nx * lattice.Ny * lattice.Nz
+Base.size(lattice::CubicLattice) = (lattice.Nx, lattice.Ny, lattice.Nz)
 
-function positions(lattice::SquareLattice3D)
+function positions(lattice::CubicLattice)
     Nx, Ny, Nz = lattice.Nx, lattice.Ny, lattice.Nz
     pos = [(x, y, z) for x in 0:Nx-1, y in 0:Ny-1, z in 0:Nz-1]
     return vec(pos)
 end
 
-function nodes(lattice::SquareLattice3D)
+function sites(lattice::CubicLattice)
     return 1:lattice.Nx * lattice.Ny * lattice.Nz
 end
 
-function edges(lattice::SquareLattice3D)
+function edges(lattice::CubicLattice)
     pos = positions(lattice)
     pos_dict = Dict(p => i for (i, p) in enumerate(pos))
     edges = []

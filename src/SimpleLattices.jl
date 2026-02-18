@@ -6,7 +6,11 @@ abstract type AbstractLattice3D <: AbstractLattice end
 
 
 include("square.jl")
-include("square3d.jl")
+include("cubic.jl")
 
+export AbstractLattice, AbstractLattice2D, AbstractLattice3D
+export SquareLattice
+export CubicLattice
+export edges, sites, positions
 
 end
