@@ -4,6 +4,7 @@ using SimpleLattices
 
 
 L = CubicLattice(2, 3, 4, true, true, true)
+
 println(edges(L))
 
 println(typeof(L)<:AbstractLattice3D)

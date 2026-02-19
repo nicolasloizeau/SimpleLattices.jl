@@ -4,19 +4,23 @@ authors = ["Nicolas Loizeau"]
 version = "1.0.0-DEV"
 
 
-[extensions]
-GLMakieSimpleLatticesExt = "GLMakie"
-
 [weakdeps]
 GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+
+[extensions]
+GLMakieSimpleLatticesExt = "GLMakie"
+CairoMakieSimpleLatticesExt = "CairoMakie"
 
 [compat]
-GLMakie = "0.13.8"
+CairoMakie = "0.15"
+GLMakie = "0.13"
 julia = "1.6.7"
 
 [extras]
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]

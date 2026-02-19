@@ -1,5 +1,5 @@
-module GLMakieSimpleLatticesExt
-using GLMakie
+module CairoMakieSimpleLatticesExt
+using CairoMakie
 using SimpleLattices
 export plot_lattice
 include("plot_lattice.jl")

@@ -1,5 +1,5 @@
 
-using GLMakie
+using CairoMakie
 using SimpleLattices
 
 
