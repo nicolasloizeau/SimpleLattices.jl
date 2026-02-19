@@ -8,6 +8,16 @@ struct CubicLattice <: AbstractLattice3D
     zperiodic::Bool
 end
 
+
+"""
+    CubicLattice(Nx::Int, Ny::Int, Nz::Int; xperiodic::Bool=false, yperiodic::Bool=false, zperiodic::Bool=false)
+
+Create a cubic lattice with `Nx` sites in the x-direction, `Ny` sites in the y-direction, and `Nz` sites in the z-direction.
+By default, the lattice is not periodic in any direction. Set `xperiodic=true`, `yperiodic=true`, or `zperiodic=true` to make it periodic in the respective direction.
+"""
+CubicLattice(Nx::Int, Ny::Int, Nz::Int; xperiodic::Bool=false, yperiodic::Bool=false, zperiodic::Bool=false) = CubicLattice(Nx, Ny, Nz, xperiodic, yperiodic, zperiodic)
+
+
 Base.length(lattice::CubicLattice) = lattice.Nx * lattice.Ny * lattice.Nz
 Base.size(lattice::CubicLattice) = (lattice.Nx, lattice.Ny, lattice.Nz)
 

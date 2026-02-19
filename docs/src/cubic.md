@@ -4,7 +4,7 @@
 
 Build a cubit lattice:
 ```@example cubic
-using GLMakie
+using CairoMakie
 using SimpleLattices
 L = CubicLattice(2, 3, 4, true, true, true)
 ```

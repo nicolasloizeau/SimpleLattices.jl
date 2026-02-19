@@ -3,7 +3,7 @@
 
 Build a cubit lattice:
 ```@example cubic
-using GLMakie
+using CairoMakie
 using SimpleLattices
 L = SquareLattice(7, 5, true, true)
 ```

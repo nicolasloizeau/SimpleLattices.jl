@@ -6,6 +6,15 @@ struct SquareLattice <: AbstractLattice2D
     yperiodic::Bool
 end
 
+
+"""
+    SquareLattice(Nx::Int, Ny::Int; xperiodic::Bool=false, yperiodic::Bool=false)
+
+Create a square lattice with `Nx` sites in the x-direction and `Ny` sites in the y-direction.
+By default, the lattice is not periodic in either direction. Set `xperiodic=true` or `yperiodic=true` to make it periodic in the respective direction.
+"""
+SquareLattice(Nx::Int, Ny::Int; xperiodic::Bool=false, yperiodic::Bool=false) = SquareLattice(Nx, Ny, xperiodic, yperiodic)
+
 Base.length(lattice::SquareLattice) = lattice.Nx * lattice.Ny
 Base.size(lattice::SquareLattice) = (lattice.Nx, lattice.Ny)
 
