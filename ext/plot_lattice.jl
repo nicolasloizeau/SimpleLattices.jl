@@ -1,7 +1,25 @@
 
 
 
-function SimpleLattices.plot_lattice(lattice::Union{AbstractLattice2D, AbstractLattice3D})
+
+function SimpleLattices.plot_positions(lattice::AbstractLattice)
+    fig = Figure()
+    pos = positions(lattice)
+    pos = collect.(pos) |> vcat
+    pos = reduce(vcat, transpose.(pos))
+    dims = size(pos, 2)
+    dims in (2, 3) || throw(ArgumentError("Only 2D/3D lattices are supported, got $dims-D"))
+
+    ax = dims == 2 ?
+        Axis(fig[1, 1], aspect = DataAspect()) :
+        Axis3(fig[1, 1], aspect = :data)
+
+    coords = ntuple(d -> pos[:, d], dims)
+    scatter!(ax, coords...; markersize = 15, color = :red)
+    return fig
+end
+
+function SimpleLattices.plot_lattice(lattice::Union{AbstractLattice2D, AbstractLattice3D}; edges::Function=edges)
     fig = Figure()
     pos = positions(lattice)
     pos = collect.(pos) |> vcat

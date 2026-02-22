@@ -3,11 +3,14 @@ using CairoMakie
 using SimpleLattices
 
 
-L = SquareLattice(2, 4, true, true)
+L = HexagonalLattice(5, 6, false, false)
 println(edges(L))
+# println(edges(L))
 
 println(typeof(L)<:AbstractLattice2D)
 
 fig = plot_lattice(L)
-display(fig)
-sleep(10^9)
+# display(fig)
+save("lattice.png", fig)
+
+# sleep(10^9)

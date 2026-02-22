@@ -28,7 +28,7 @@ function positions(lattice::CubicLattice)
 end
 
 function sites(lattice::CubicLattice)
-    return 1:lattice.Nx * lattice.Ny * lattice.Nz
+    return collect(1:lattice.Nx * lattice.Ny * lattice.Nz)
 end
 
 function edges(lattice::CubicLattice)

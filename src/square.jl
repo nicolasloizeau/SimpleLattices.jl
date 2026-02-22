@@ -24,7 +24,7 @@ function positions(lattice::SquareLattice)
 end
 
 function sites(lattice::SquareLattice)
-    return 1:lattice.Nx * lattice.Ny
+    return collect(1:lattice.Nx * lattice.Ny)
 end
 
 function edges(lattice::SquareLattice)
