@@ -20,6 +20,9 @@ makedocs(;
         "SquareLattice" => "square.md",
         "CubicLattice" => "cubic.md",
         "TriangularLattice" => "triangular.md",
+        "HexagonalLattice" => "hexagonal.md",
+        "KagomeLattice" => "kagome.md",
+        "Custom lattices" => "custom.md",
     ],
 )
 

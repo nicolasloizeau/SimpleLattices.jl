@@ -41,7 +41,7 @@ function SimpleLattices.plot_lattice(lattice::Lattice; edges::Function=edges)
         lines!(ax, line_coords...; color = :blue)
     end
 
-    indexes = site_indexes(lattice)
+    indexes = sites(lattice)
     for i in 1:size(pos, 1)
         position = dims == 2 ?
             (pos[i, 1], pos[i, 2]) :

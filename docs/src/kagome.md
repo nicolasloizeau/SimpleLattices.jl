@@ -1,11 +1,11 @@
 
-# Square Lattice
+# Kagome Lattice
 
-Build a square lattice with periodic boundary conditions in both directions:
+Build a Kagome lattice with open boundary conditions :
 ```@example ex1
 using CairoMakie
 using SimpleLattices
-L = SquareLattice(7, 5; periodic = (true, true))
+L = KagomeLattice(4, 5; periodic=(false, false))
 ```
 
 Get the edges of the lattice:
