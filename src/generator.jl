@@ -1,54 +1,25 @@
-
-function positions(lattice::Lattice{2})
-    cell = lattice.cell
-    size = lattice.size
-    periodicity = lattice.periodicity
-    site_positions = []
-    for i in 0:size[1]-1, j in 0:size[2]-1
+function positions(lattice::Lattice{N}) where {N}
+    cell  = lattice.cell
+    sizes = lattice.size
+    site_positions = typeof(cell.sites[1])[]
+    ranges = ntuple(d -> 0:sizes[d]-1, N)
+    M = length(cell.sites[1])
+    # Reverse to match nested-loop ordering
+    for coord_rev in Iterators.product(reverse(ranges)...)
+        coord = reverse(coord_rev)
         for site in cell.sites
-            pos = site .+ i.*cell.vectors[1] .+ j.*cell.vectors[2]
+            pos = ntuple(i -> begin
+                acc = site[i]
+                for d in 1:N
+                    acc += coord[d] * cell.vectors[d][i]
+                end
+                acc
+            end, M)
             push!(site_positions, pos)
         end
     end
     return site_positions
 end
-
-# function positions(lattice::Lattice{3})
-#     cell = lattice.cell
-#     size = lattice.size
-#     periodicity = lattice.periodicity
-#     site_positions = []
-#     for i in 0:size[1]-1, j in 0:size[2]-1, k in 0:size[3]-1
-#         for site in cell.sites
-#             pos = site .+ i.*cell.vectors[1] .+ j.*cell.vectors[2] .+ k.*cell.vectors[3]
-#             push!(site_positions, pos)
-#         end
-#     end
-#     return site_positions
-# end
-
-# function positions(lattice::Lattice{N}) where {N}
-#     cell  = lattice.cell
-#     sizes = lattice.size
-#     site_positions = typeof(cell.sites[1])[]
-#     ranges = ntuple(d -> 0:sizes[d]-1, N)
-#     M = length(cell.sites[1])
-#     # Reverse to match nested-loop ordering
-#     for coord_rev in Iterators.product(reverse(ranges)...)
-#         coord = reverse(coord_rev)
-#         for site in cell.sites
-#             pos = ntuple(i -> begin
-#                 acc = site[i]
-#                 for d in 1:N
-#                     acc += coord[d] * cell.vectors[d][i]
-#                 end
-#                 acc
-#             end, M)
-#             push!(site_positions, pos)
-#         end
-#     end
-#     return site_positions
-# end
 
 
 function site_index(lattice::Lattice{2}, i::Int, j::Int, k::Int)
@@ -64,34 +35,17 @@ end
 
 function site_indexes(lattice::Lattice{N}) where {N}
     sizes = lattice.size
-    indexes = Vector{Int}()  # or correct index type
-
+    indexes = Vector{Int}()
     ranges = ntuple(d -> 0:sizes[d]-1, N)
-
     # Reverse to match nested-loop ordering
     for coord_rev in Iterators.product(reverse(ranges)...)
         coord = reverse(coord_rev)
-
         for s in 1:length(lattice.cell.sites)
             push!(indexes, site_index(lattice, coord..., s))
         end
     end
-
     return indexes
 end
-
-# function site_indexes(lattice::Lattice{2})
-#     size = lattice.size
-#     indexes = []
-#     for i in 0:size[1]-1, j in 0:size[2]-1
-#         for k in 1:length(lattice.cell.sites)
-#             push!(indexes, site_index(lattice, i, j, k))
-#         end
-#     end
-#     return indexes
-# end
-
-
 
 
 function edges(lattice::Lattice{2})

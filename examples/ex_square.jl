@@ -3,7 +3,7 @@ using GLMakie
 using SimpleLattices
 
 
-lattice = Lattice(SQUARE_CELL, (4,5), (false, false))
+lattice = Lattice(TRIANGULAR_CELL, (4,5), (true, false))
 
 
 # const cell = UnitCell(
