@@ -16,7 +16,7 @@ Pkg.add(url="https://github.com/nicolasloizeau/SimpleLattices.jl")
 
 ## Usage
 
-Standard lattices constructors are provided : `SquareLattice`, `CubicLattice`  `TriangularLattice`,`HexagonalLattice` and `KagomeLattice`. Custom lattices can be constructed using `UnitCell`.
+Standard lattices constructors are provided : [`SquareLattice`](https://nicolasloizeau.github.io/SimpleLattices.jl/dev/square/), [`CubicLattice`](https://nicolasloizeau.github.io/SimpleLattices.jl/dev/cubic/), [`TriangularLattice`](https://nicolasloizeau.github.io/SimpleLattices.jl/dev/triangular/), [`HexagonalLattice`](https://nicolasloizeau.github.io/SimpleLattices.jl/dev/hexagonal/) and [`KagomeLattice`](https://nicolasloizeau.github.io/SimpleLattices.jl/dev/kagome/). Custom lattices can be constructed using `UnitCell`.
 
 
 Example: Construct a hexagonal lattice with 3*4 cells and periodic boundary conditions along the x-axis, and plot it:
