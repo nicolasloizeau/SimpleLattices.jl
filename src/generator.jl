@@ -1,7 +1,7 @@
 
 
 """
-    positions(lattice::Lattice{N}) where {N}
+    positions(lattice::Lattice)
 
 Returns a vector of the positions of all sites in the lattice.
 The positions are ordered like [`sites`](@ref).
@@ -41,7 +41,7 @@ function site_index(lattice::Lattice{3}, i::Int, j::Int, k::Int, l::Int)
 end
 
 """
-    sites(lattice::Lattice{N}) where {N}
+    sites(lattice::Lattice)
 
 Return a list of sites indexes.
 """
@@ -73,7 +73,7 @@ end
 
 
 """
-    edges(lattice::Lattice{N}; edge_indexes=1:length(lattice.cell.edges)) where {N}
+    edges(lattice::Lattice; edge_indexes=1:length(lattice.cell.edges))
 
 Returns a list of edges in the lattice, where each edge is represented as a couple of site indexes.
 
