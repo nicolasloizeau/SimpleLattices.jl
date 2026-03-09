@@ -28,7 +28,6 @@ Create a cubic lattice of size (Nx, Ny, Nz).
 Periodic boundary conditions are not implemented for 3D lattices at the moment.
 """
 function CubicLattice(Nx, Ny, Nz; periodic=(false, false, false))
-    @assert periodic == (false, false, false) "Periodic boundary conditions are not implemented for 3D lattices at the moment."
     Lattice(CUBIC_CELL, (Nx, Ny, Nz), periodic)
 end
 
